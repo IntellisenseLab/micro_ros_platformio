@@ -1,6 +1,8 @@
 #include <mbed.h>
 #include <sys/time.h>
 
+#ifndef WITH_POSIX
+
 extern "C" int clock_gettime(clockid_t unused, struct timespec *tp) {
     (void)unused;
 
@@ -10,3 +12,5 @@ extern "C" int clock_gettime(clockid_t unused, struct timespec *tp) {
 
     return 0;
 }
+
+#endif  // ifndef WITH_POSIX
